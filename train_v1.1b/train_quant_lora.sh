@@ -1,0 +1,20 @@
+python run_clm_8bit.py \
+--model_name_or_path='EleutherAI/polyglot-ko-12.8b' \
+--train_file='data/KoAlpaca_v1.1.csv' \
+--num_train_epochs=2 \
+--block_size=2048 \
+--per_device_train_batch_size=1 \
+--gradient_accumulation_steps=256 \
+--torch_dtype=float16 \
+--fp16 \
+--output_dir='polyglot-12.8b-koalpaca-v1.1b/8bit_lora' \
+--do_train \
+--save_strategy='no' \
+--logging_strategy='steps' \
+--logging_first_step \
+--report_to="wandb" \
+--save_total_limit=1 \
+--run_name='polyglot-12.8b-koalpaca-v1.1b-ga64' \
+--train_in_8bit true \
+--low_cpu_mem_usage true \
+--seed 42
